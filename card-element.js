@@ -36,6 +36,12 @@ export class CardElement extends LitElement {
       font-size: 3em;
     }
 
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .card-content {
       padding: 20px;
     }
@@ -64,7 +70,7 @@ export class CardElement extends LitElement {
     return html`
       <div class="card">
         <div class="card-image">
-          ${this.imageUrl ? html`<img src="${this.imageUrl}" alt="${this.title}">` : html`🎨`}
+          ${this.imageUrl ? html`<img src="${this.imageUrl}" alt="${this.title}" loading="lazy">` : html`🎨`}
         </div>
         <div class="card-content">
           <h2 class="card-title">${this.title}</h2>
