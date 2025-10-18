@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plantilla de Ejemplo - Greeting Card Web Component</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #f8f9fa, #e9ecef);
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 2.5em;
+    }
+    
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 40px;
+      font-size: 1.2em;
+    }
+    
+    .examples {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    .example-section {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .example-title {
+      font-size: 1.5em;
+      color: #667eea;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    
+    .code-section {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+    }
+    
+    pre {
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    
+    code {
+      font-family: 'Courier New', Courier, monospace;
+    }
+    
+    .interactive-section {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .controls {
+      display: grid;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    
+    label {
+      font-weight: bold;
+      color: #333;
+    }
+    
+    input[type="text"] {
+      padding: 10px;
+      border: 2px solid #e9ecef;
+      border-radius: 6px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+    
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+    
+    button {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    
+    button:hover {
+      transform: translateY(-2px);
+    }
+    
+    button:active {
+      transform: translateY(0);
+    }
+    
+    .info-box {
+      background: #e7f3ff;
+      border-left: 4px solid #667eea;
+      padding: 20px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+    
+    .info-box h3 {
+      margin-top: 0;
+      color: #667eea;
+    }
+    
+    .footer {
+      text-align: center;
+      color: #666;
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 2px solid #e9ecef;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 Plantilla de Ejemplo - Greeting Card Web Component</h1>
+    <p class="subtitle">Ejemplos de uso del componente web personalizado</p>
+    
+    <div class="info-box">
+      <h3>📋 Acerca de este componente</h3>
+      <p>
+        <strong>GreetingCard</strong> es un componente web personalizado que muestra una tarjeta de saludo animada.
+        Utiliza Shadow DOM para encapsulación de estilos y soporta atributos personalizables.
+      </p>
+    </div>
+    
+    <h2 class="example-title">📦 Ejemplos Predefinidos</h2>
+    <div class="examples">
+      <div class="example-section">
+        <h3 class="example-title">Ejemplo 1: Saludo Básico</h3>
+        <greeting-card name="María" message="¡Hola!"></greeting-card>
+      </div>
+      
+      <div class="example-section">
+        <h3 class="example-title">Ejemplo 2: Bienvenida</h3>
+        <greeting-card name="Carlos" message="¡Bienvenido!"></greeting-card>
+      </div>
+      
+      <div class="example-section">
+        <h3 class="example-title">Ejemplo 3: Felicitaciones</h3>
+        <greeting-card name="Ana" message="¡Felicidades!"></greeting-card>
+      </div>
+      
+      <div class="example-section">
+        <h3 class="example-title">Ejemplo 4: Mensaje Personalizado</h3>
+        <greeting-card name="GitHub Copilot" message="¡Éxito en tu proyecto!"></greeting-card>
+      </div>
+    </div>
+    
+    <div class="code-section">
+      <h2 class="example-title">💻 Código de Uso</h2>
+      <p>Para usar este componente en tu página, simplemente incluye el script y utiliza la etiqueta personalizada:</p>
+      <pre><code>&lt;!-- Incluir el componente --&gt;
+&lt;script src="greeting-card.js"&gt;&lt;/script&gt;
+
+&lt;!-- Usar el componente --&gt;
+&lt;greeting-card name="Tu Nombre" message="Tu Mensaje"&gt;&lt;/greeting-card&gt;</code></pre>
+      
+      <h3>Atributos disponibles:</h3>
+      <ul>
+        <li><strong>name</strong>: El nombre que se mostrará en la tarjeta (por defecto: "Guest")</li>
+        <li><strong>message</strong>: El mensaje de saludo (por defecto: "Hello!")</li>
+      </ul>
+    </div>
+    
+    <div class="interactive-section">
+      <h2 class="example-title">🎮 Ejemplo Interactivo</h2>
+      <p>Personaliza tu propia tarjeta de saludo:</p>
+      
+      <div class="controls">
+        <div class="control-group">
+          <label for="customName">Nombre:</label>
+          <input type="text" id="customName" placeholder="Ingresa un nombre" value="Usuario">
+        </div>
+        
+        <div class="control-group">
+          <label for="customMessage">Mensaje:</label>
+          <input type="text" id="customMessage" placeholder="Ingresa un mensaje" value="¡Prueba este componente!">
+        </div>
+        
+        <button onclick="updateCustomCard()">Actualizar Tarjeta</button>
+      </div>
+      
+      <greeting-card id="customCard" name="Usuario" message="¡Prueba este componente!"></greeting-card>
+    </div>
+    
+    <div class="code-section">
+      <h2 class="example-title">🔧 Actualización Dinámica con JavaScript</h2>
+      <p>Puedes actualizar los atributos del componente dinámicamente usando JavaScript:</p>
+      <pre><code>// Seleccionar el elemento
+const card = document.querySelector('greeting-card');
+
+// Actualizar atributos
+card.setAttribute('name', 'Nuevo Nombre');
+card.setAttribute('message', 'Nuevo Mensaje');</code></pre>
+    </div>
+    
+    <div class="footer">
+      <p>
+        <strong>Greeting Card Web Component</strong> - Creado con Web Components API<br>
+        Ejemplo para GitHub Copilot Skills
+      </p>
+    </div>
+  </div>
+  
+  <!-- Incluir el componente web -->
+  <script src="greeting-card.js"></script>
+  
+  <!-- Script para el ejemplo interactivo -->
+  <script>
+    function updateCustomCard() {
+      const name = document.getElementById('customName').value || 'Usuario';
+      const message = document.getElementById('customMessage').value || '¡Prueba este componente!';
+      const card = document.getElementById('customCard');
+      
+      card.setAttribute('name', name);
+      card.setAttribute('message', message);
+    }
+  </script>
+</body>
+</html>
