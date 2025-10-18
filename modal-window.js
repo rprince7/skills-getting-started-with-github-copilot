@@ -124,6 +124,7 @@ export class ModalWindow extends LitElement {
     super();
     this.open = false;
     this.title = 'Modal';
+    this._boundHandleKeyDown = this._handleKeyDown.bind(this);
   }
 
   close() {
@@ -148,12 +149,12 @@ export class ModalWindow extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    window.addEventListener('keydown', this._handleKeyDown.bind(this));
+    window.addEventListener('keydown', this._boundHandleKeyDown);
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    window.removeEventListener('keydown', this._handleKeyDown.bind(this));
+    window.removeEventListener('keydown', this._boundHandleKeyDown);
   }
 
   render() {
