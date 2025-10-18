@@ -26,9 +26,16 @@ class GreetingCard extends HTMLElement {
     }
   }
 
+  // Helper method to escape HTML and prevent XSS attacks
+  escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
   render() {
-    const name = this.getAttribute('name') || 'Guest';
-    const message = this.getAttribute('message') || 'Hello!';
+    const name = this.escapeHtml(this.getAttribute('name') || 'Guest');
+    const message = this.escapeHtml(this.getAttribute('message') || 'Hello!');
 
     this.shadowRoot.innerHTML = `
       <style>
