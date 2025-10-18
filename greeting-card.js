@@ -28,14 +28,19 @@ class GreetingCard extends HTMLElement {
 
   // Helper method to escape HTML and prevent XSS attacks
   escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
+    if (text == null) return '';
+    const element = document.createElement('span');
+    element.textContent = String(text);
+    return element.innerHTML;
   }
 
   render() {
-    const name = this.escapeHtml(this.getAttribute('name') || 'Guest');
-    const message = this.escapeHtml(this.getAttribute('message') || 'Hello!');
+    const name = this.getAttribute('name') || 'Guest';
+    const message = this.getAttribute('message') || 'Hello!';
+    
+    // Escape user input to prevent XSS
+    const safeName = this.escapeHtml(name);
+    const safeMessage = this.escapeHtml(message);
 
     this.shadowRoot.innerHTML = `
       <style>
@@ -91,8 +96,8 @@ class GreetingCard extends HTMLElement {
         }
       </style>
       <div class="card">
-        <div class="message">${message}</div>
-        <div class="name">${name}</div>
+        <div class="message">${safeMessage}</div>
+        <div class="name">${safeName}</div>
         <div class="decoration">✨🎉✨</div>
       </div>
     `;
